@@ -59,7 +59,7 @@ class DayThreeConversation extends Conversation
                     $visitor->save();
                 }
 
-                //$this->say("Спасибо, мы внесли вас в список участников! ");
+                $this->say("Спасибо, мы внесли вас в список участников! ");
 
             } else {
                 return $this->say('Будем ждать вас на фестивале.');

@@ -20,6 +20,7 @@ Route::get('/yes', 'StatController@yesStat');
 // рейтинг
 Route::get('/star', 'StatController@starStat');
 // Пожелания
+Route::get("/wishes", 'StatController@wishesStat');
 
 // рассылка
 //Route::get('/q', 'StatController@setFixPhone');

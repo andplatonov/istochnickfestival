@@ -8,7 +8,7 @@
     @foreach ( $visitor as $user)
         <tr>
             <td>{{ $user->id }}</td>
-            <td>{{ $user->question }}</td>
+            <td>{{ $user->chat_id }}</td>
         </tr>
     @endforeach
     </tbody>
