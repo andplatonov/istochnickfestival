@@ -74,4 +74,9 @@ class DayThreeConversation extends Conversation
         return $property->getValue($obj);
     }
 
+    public function competition() {
+
+
+    }
+
 }

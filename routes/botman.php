@@ -7,6 +7,8 @@ use App\Conversations\DayThreeConversation;
 use App\Conversations\EndConversation;
 use App\Conversations\SendPhotoConversation;
 use App\Conversations\FinalDay;
+use App\Conversations\addUserConversation;
+use App\Conversations\allResponseConversation;
 
 use BotMan\BotMan\BotMan;
 use App\Conversations\BenchConversation;
@@ -20,10 +22,29 @@ use App\save;
 use Illuminate\Support\Facades\Log;
 
 $botman = resolve('botman');
-
+$GLOBALS['array_id'] = [];
+/*
 $botman->hears('старт|Старт', function (BotMan $bot) {
     //$bot->reply('its start!');
     $bot->startConversation(new QuestionConversation);
+});
+*/
+// Для юзеров, которые пришли на фестиваль 18.05.19
+$botman->hears('старт|Старт', function(BotMan $bot) {
+    $bot->startConversation(new addUserConversation);
+});
+
+
+
+$botman->hears('allresponse', function (BotMan $bot) {
+    $user_ids = visitor::where('chat_id', '!=', 'not viber')->get();
+
+
+
+
+    foreach ($user_ids as $user_id){
+        $bot->startConversation(new allResponseConversation, $user_id->chat_id, ViberDriver::class);
+    }
 });
 
 $botman->hears('Start conversation', BotManController::class.'@startConversation');
