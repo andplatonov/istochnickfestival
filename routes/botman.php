@@ -37,7 +37,7 @@ $botman->hears('старт|Старт', function(BotMan $bot) {
 
 
 $botman->hears('allresponse', function (BotMan $bot) {
-    $user_ids = visitor::where('chat_id', '!=', 'not viber')->get();
+    $user_ids = participant::where('chat_id', '!=', 'not viber')->get();
 
 
 
